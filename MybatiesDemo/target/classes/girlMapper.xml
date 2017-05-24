@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="model.Girl">
+    <!-- 主键自增长 并且还回配置  useGeneratedKeys="true"  keyProperty="fid"-->
+    <!-- user为bean简写 配置在 mybatis-configuration.xml的typeAliases中 -->
+
+
+
+    <insert id="insert" parameterType="girl">
+        insert into girl(age,cup_size)values(#{age},#{cupSize})
+    </insert>
+
+    <select id="selectGirl" parameterType="int" resultMap="MyGirlResult">
+        SELECT * FROM girl WHERE ID = #{id}
+    </select>
+
+    <select id="selectMyStu" resultMap="girlResult">
+        SELECT * FROM girl WHERE ID = #{id}
+    </select>
+
+    <select id="selectStudent" parameterType="int" resultType="model.Student">
+        SELECT * FROM student WHERE ID = #{id}
+    </select>
+
+
+
+    <!-- 更新-->
+    <update id="update">
+    update girl set age = #{age} where id = #{id}
+
+    </update>
+
+    <delete id="delete">
+        DELETE from girl where id = #{id}
+    </delete>
+
+    <insert id="insertGirl" useGeneratedKeys="true" keyProperty="id">
+     insert into girl(age,cup_size)values(#{age},#{cupSize})
+    </insert>
+
+<select id="findGirl" resultMap="MyGirlResult">
+    SELECT g.id,g.age,g.cup_size,g.student_id,s.school,s.stu_num,s.enter_time,s.id from girl g
+ left  JOIN student s on g.student_id = s.id where g.id = #{id}
+</select>
+
+
+    <resultMap id="studentResult" type="model.Student">
+        <id property="id" column="id"></id>
+        <result property="school" column="school"></result>
+        <result property="stuNum" column="stu_num"></result>
+        <result property="enterTime" column="enter_time"></result>
+    </resultMap>
+
+    <resultMap id="girlResult" type="model.Girl">
+        <result property="id" column="id"></result>
+        <result property="age" column="age"></result>
+        <result property="cupSize" column="cup_size"></result>
+        <association property="student" column="student_id" javaType="model.Student" select="selectStudent"></association>
+    </resultMap>
+
+
+
+
+    <resultMap id="MyGirlResult" type="model.Girl">
+        <result property="id" column="id"></result>
+        <result property="age" column="age"></result>
+        <result property="cupSize" column="cup_size"></result>
+        <association property="student" javaType="model.Student" fetchType="lazy">
+            <id property="id" column="student_id"></id>
+            <result property="school" column="school"></result>
+            <result property="stuNum" column="stu_num"></result>
+            <result property="enterTime" column="enter_time"></result>
+        </association>
+
+    </resultMap>
+
+</mapper>
