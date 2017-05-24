@@ -43,7 +43,7 @@ public class TestDataSource {
 
       Girl girl =  sqlSession.selectOne("model.Girl.selectGirl",1);
       System.out.println(girl.toString());
-      System.out.println(girl.getStudent().getSchool());
+//      System.out.println(girl.getStudent().getSchool());
     }
 
     @Test
@@ -90,7 +90,7 @@ public class TestDataSource {
     @Test
     public void selectStudent(){
         Student s = new Student();
-        s.setId(3);
+        s.setId(1);
 
         s = sqlSession.selectOne("model.Girl.selectStudent",s);
         System.out.println(s.getSchool());
