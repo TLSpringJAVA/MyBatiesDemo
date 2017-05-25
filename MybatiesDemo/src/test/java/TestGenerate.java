@@ -28,17 +28,17 @@ public class TestGenerate {
         sqlSession = factory.openSession();
     }
 
-//    //测试添加方法
-//    @Test
-//    public void insert(){
-//        student stu = new student();
-//        stu.setSchool("华明中学");
-//        stu.setStuNum("1001");
-//
-//       int result = sqlSession.insert("studentMapper.insert",stu);
-//        System.out.println("结果"+result);
-//    }
-//
+    //测试添加方法
+    @Test
+    public void insert(){
+        student stu = new student();
+        stu.setSchool("华明中学");
+        stu.setStuNum("1001");
+
+       int result = sqlSession.insert("com.anlu.mapper.studentMapper.insert",stu);
+        System.out.println("结果"+result);
+    }
+
     @Test
     public void findone(){
         Long stuId = new Long(1);
