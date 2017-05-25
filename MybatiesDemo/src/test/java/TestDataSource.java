@@ -1,5 +1,5 @@
-import model.Girl;
-import model.Student;
+import hand.test.model.Girl;
+import hand.test.model.Student;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -35,13 +35,13 @@ public class TestDataSource {
         Girl girl = new Girl();
         girl.setAge(38);
         girl.setCup_size("F");
-        sqlSession.insert("model.Girl.insert", girl);
+        sqlSession.insert("hand.test.model.Girl.insert", girl);
     }
 
     @Test
     public void testFindOne(){
 
-      Girl girl =  sqlSession.selectOne("model.Girl.selectGirl",1);
+      Girl girl =  sqlSession.selectOne("hand.test.model.Girl.selectGirl",1);
       System.out.println(girl.toString());
 //      System.out.println(girl.getStudent().getSchool());
     }
@@ -56,7 +56,7 @@ public class TestDataSource {
         Girl girl = new Girl();
         girl.setId(18);
         girl.setAge(49);
-        sqlSession.update("update",girl);
+        sqlSession.update("hand.test.model.update",girl);
     }
 
     @Test
@@ -64,7 +64,7 @@ public class TestDataSource {
         Girl girl = new Girl();
         girl.setId(43);
 
-        sqlSession.delete("delete",girl);
+        sqlSession.delete("hand.test.model.delete",girl);
     }
 
     @Test
@@ -73,7 +73,7 @@ public class TestDataSource {
         girl.setAge(30);
         girl.setCup_size("R");
 
-        sqlSession.insert("insertGirl",girl);
+        sqlSession.insert("hand.test.model.insertGirl",girl);
     }
 
     @Test
@@ -81,7 +81,7 @@ public class TestDataSource {
         Girl girl = new Girl();
         girl.setId(1);
 
-        girl = sqlSession.selectOne("selectMyStu",girl);
+        girl = sqlSession.selectOne("hand.test.model.selectMyStu",girl);
         System.out.println(girl.getAge());
         System.out.println(girl.getStudent().getId());
         System.out.println(girl.getStudent().getSchool());
@@ -92,7 +92,7 @@ public class TestDataSource {
         Student s = new Student();
         s.setId(1);
 
-        s = sqlSession.selectOne("model.Girl.selectStudent",s);
+        s = sqlSession.selectOne("hand.test.model.Girl.selectStudent",s);
         System.out.println(s.getSchool());
     }
 
@@ -101,7 +101,7 @@ public class TestDataSource {
         Girl girl = new Girl();
         girl.setId(1);
 
-       girl = sqlSession.selectOne("findGirl",girl);
+       girl = sqlSession.selectOne("hand.test.model.findGirl",girl);
 
     }
 

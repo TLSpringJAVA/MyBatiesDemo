@@ -1,5 +1,5 @@
-import model.Girl;
-import model.Student;
+import hand.test.model.Girl;
+import hand.test.model.Student;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -39,7 +39,7 @@ public class TestStudent {
         student.setEnterTime(new Date());
         student.setSchool("耀华中学");
         student.setStuNum("002");
-        sqlSession.insert("model.Student.insert", student);
+        sqlSession.insert("hand.test.model.Student.insert", student);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class TestStudent {
         Student stu = new Student();
         stu.setId(1);
 
-        sqlSession.selectOne("model.Student.selectStudent",stu);
+        sqlSession.selectOne("hand.test.model.Student.selectStudent",stu);
     }
 
     @Test
@@ -56,7 +56,7 @@ public class TestStudent {
         Student stu = new Student();
         stu.setStuNum("001");
 
-       List<Object> list =  sqlSession.selectList("searchStudent",stu);
+       List<Object> list =  sqlSession.selectList("hand.test.model.Student.searchStudent",stu);
        System.out.println(list);
 
     }
@@ -66,7 +66,7 @@ public class TestStudent {
         Student s = new Student();
         s.setId(2);
 
-        s = sqlSession.selectOne("model.Student.selectStudentByMap",s);
+        s = sqlSession.selectOne("hand.test.model.Student.selectStudentByMap",s);
         System.out.println(s.getSchool());
 
     }
@@ -77,7 +77,7 @@ public class TestStudent {
         stu.setId(1);
 
 
-      stu = sqlSession.selectOne("findStu",stu);
+      stu = sqlSession.selectOne("hand.test.findStu",stu);
       System.out.println(stu.getSchool());
       System.out.println(stu.getStuNum());
       System.out.println(stu.getArticleList());

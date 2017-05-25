@@ -1,4 +1,4 @@
-package model;
+package hand.test.model;
 
 /**
  * Created by anlu on 2017/5/3.
