@@ -6,10 +6,7 @@
 
 <configuration>
 
-    <typeAliases>
-        <typeAlias type="hand.test.model.Girl" alias="girl"></typeAlias>
-        <typeAlias type="hand.test.model.Student" alias="student"></typeAlias>
-    </typeAliases>
+
 
     <!-- 环境配置 -->
     <environments default="development">
@@ -27,21 +24,17 @@
 
     <!-- 映射文件 ,我们还没有，这里什么都不写-->
 
-    <!-- 这个是手动写的mapper文件-->
-    <mappers>
-        <mapper resource="testmapper/hand_girlMapper.xml" />
-        <mapper resource="testmapper/hand_StudentMapper.xml"></mapper>
-    </mappers>
 
 
     <!--下面的是通过generate插件生成的mapper-->
-    <!--<mappers>-->
-        <!--&lt;!&ndash;批量加载mapper(推荐使用)&ndash;&gt;-->
-        <!--&lt;!&ndash;<mapper resourstudentMapperpper.xml"></mapper>&ndash;&gt;-->
-        <!--<mapper resource="com/anlu/mapper/studentMapper.xml"></mapper>-->
-        <!--&lt;!&ndash;<package name="com.anlu.mapper"></package>&ndash;&gt;-->
-        <!--&lt;!&ndash;<mapper resource="studentMapper.xml"></mapper>&ndash;&gt;-->
-    <!--</mappers>-->
+    <mappers>
+        <!-- 扫描路径下的mapper映射文件 -->
+        <mapper resource="com/anlu/mapper/studentMapper.xml"/>
+        <!-- 扫描包下的接口文件 -->
+        <package name="com.anlu.dao" />
+        <!--<package name="com.anlu.mapper"></package>-->
+        <!--<mapper resource="studentMapper.xml"></mapper>-->
+    </mappers>
 
 
 </configuration>

@@ -37,7 +37,7 @@
     <!--下面的是通过generate插件生成的mapper-->
     <!--<mappers>-->
         <!--&lt;!&ndash;批量加载mapper(推荐使用)&ndash;&gt;-->
-        <!--&lt;!&ndash;<mapper resource="com.anlu.mapper.studentMapper.xml"></mapper>&ndash;&gt;-->
+        <!--&lt;!&ndash;<mapper resourstudentMapperpper.xml"></mapper>&ndash;&gt;-->
         <!--<mapper resource="com/anlu/mapper/studentMapper.xml"></mapper>-->
         <!--&lt;!&ndash;<package name="com.anlu.mapper"></package>&ndash;&gt;-->
         <!--&lt;!&ndash;<mapper resource="studentMapper.xml"></mapper>&ndash;&gt;-->
