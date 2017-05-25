@@ -43,7 +43,5 @@
         <!--&lt;!&ndash;<mapper resource="studentMapper.xml"></mapper>&ndash;&gt;-->
     <!--</mappers>-->
 
-    
-
 
 </configuration>
